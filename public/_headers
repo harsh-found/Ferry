@@ -1,0 +1,14 @@
+# Cache hashed assets aggressively (immutable — filename changes on content change)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Don't cache the HTML shell (always serve fresh for updates)
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Security headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
